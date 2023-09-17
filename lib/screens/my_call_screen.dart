@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
-
 import '../api/apis.dart';
 import '../models/chat_user.dart';
 import 'constants.dart';

@@ -1,16 +1,10 @@
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
-
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
-
-import 'package:flutter/services.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
-
 import '../../api/apis.dart';
 import '../../helpers/dialogs.dart';
 import '../../helpers/my_date_uti.dart';

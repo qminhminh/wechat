@@ -2,11 +2,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
-
 import '../../main.dart';
 import '../../models/chat_user.dart';
 import '../../screens/view_profile_screen.dart';
+
 class ProfileDialog extends StatefulWidget {
  final ChatUser user;
   const ProfileDialog({super.key, required this.user});

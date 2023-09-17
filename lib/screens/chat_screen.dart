@@ -1,7 +1,5 @@
 
 import 'dart:io';
-
-
 import '../api/apis.dart';
 import '../helpers/my_date_uti.dart';
 import '../main.dart';
@@ -10,7 +8,6 @@ import '../models/message.dart';
 import '../widgets/message_card.dart';
 import 'my_call_screen.dart';
 import 'view_profile_screen.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';

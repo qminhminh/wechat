@@ -1,14 +1,9 @@
 import 'dart:io';
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
-import 'package:video_editor/video_editor.dart';
-
 import '../../api/apis.dart';
 import '../../helpers/dialogs.dart';
 import '../../main.dart';

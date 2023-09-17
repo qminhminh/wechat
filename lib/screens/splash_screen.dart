@@ -1,13 +1,9 @@
 
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
-
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wechat/screens/auth/login_screen.dart';
 import 'package:wechat/screens/bottom_sheet.dart';
-
 import '../main.dart';
 
 class SplashScreen extends StatefulWidget {

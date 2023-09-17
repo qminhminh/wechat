@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
 import '../helpers/my_date_uti.dart';
 import '../main.dart';
 import '../models/post_comment.dart';

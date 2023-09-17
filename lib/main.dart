@@ -1,7 +1,5 @@
 import 'package:flutter_notification_channel/flutter_notification_channel.dart';
-
 import 'package:flutter_notification_channel/notification_importance.dart';
-import 'package:flutter_notification_channel/notification_visibility.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
