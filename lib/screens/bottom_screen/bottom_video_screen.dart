@@ -18,12 +18,13 @@ class _BottomVideoScreenState extends State<BottomVideoScreen> {
   List<StoryU> storylist=[];
   List<PostU> postlist=[];
   List<PostU> searchlist=[];
-
   bool _isSearching=false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: _isSearching ? TextField(
           decoration: InputDecoration(
             border: InputBorder.none,
@@ -45,8 +46,8 @@ class _BottomVideoScreenState extends State<BottomVideoScreen> {
             }
           },
         ):
-        Text('We Chat'),
-        centerTitle: false,
+        Text('Video',style: TextStyle(fontSize:17,color: Colors.black87 ),),
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -65,6 +66,7 @@ class _BottomVideoScreenState extends State<BottomVideoScreen> {
     return Stack(
       children: [
 
+        SizedBox(height: 4,),
         StreamBuilder(
           stream: APIs.getMyUserId(),
           builder: (context,snapshot) {
@@ -90,16 +92,16 @@ class _BottomVideoScreenState extends State<BottomVideoScreen> {
                               itemCount:_isSearching ? searchlist.length : postlist.length,
                               padding: EdgeInsets.only(top: mq.height * .01),
                               physics: BouncingScrollPhysics(),
-                              itemBuilder: (context, index) =>index==0 ? Column(
+                              itemBuilder: (context, index) => index== 0 ? Column(
                                 children: [
                                   Divider(thickness: 8, color: Colors.black12),
-                                  VideoCard(postU: _isSearching ? searchlist[index] :postlist[index],context: context,)
+                                  VideoCard(postU: _isSearching ? searchlist[index] : postlist[index], context: context,)
                                 ],
-                              ) :VideoCard(postU:_isSearching ? searchlist[index] : postlist[index],context: context,)
+                              ) :VideoCard(postU: _isSearching ? searchlist[index] : postlist[index], context: context,)
                           );
                         }
                         else{
-                          return Center(child: Text('No Connection Found',style: TextStyle(fontSize: 20),));
+                          return Center(child: Text('Chưa có bình luận nào 🥰',style: TextStyle(fontSize: 20),));
                         }
                     }
                   },

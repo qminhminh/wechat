@@ -30,7 +30,7 @@ class _CharUserCardState extends State<CharUserCard> {
       // inkwell nhạn sự kiện khi nhấn vào
       child: InkWell(
         onTap: (){
-            Navigator.push(context,MaterialPageRoute(builder: (_)=>ChatScreen(user: widget.user,)));
+            Navigator.push(context,MaterialPageRoute(builder: (_) => ChatScreen(user: widget.user,)));
         },
         child: StreamBuilder(
           stream: APIs.getLastMessages(widget.user),

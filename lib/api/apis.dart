@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:wechat/models/notice_model.dart';
 import '../models/chat_user.dart';
 import '../models/message.dart';
 import '../models/post_comment.dart';
@@ -189,6 +190,27 @@ class APIs{
     return await firestore.collection('users').doc(auth.currentUser!.uid).set(chatUser.toJson());
   }
 
+  // create notice
+  static Future<void> creteNotice(String text, String type) async{
+      final time = DateTime.now().millisecondsSinceEpoch.toString();
+      final noticeModle= NoticeModel(
+          image: auth.currentUser!.photoURL.toString(),
+          type: type,
+          name: auth.currentUser!.displayName.toString(),
+          noiDung: text,
+          time: time,
+          id: auth.currentUser!.uid,
+      );
+      return await firestore.collection("notice").doc(time).set(noticeModle.toJson());
+  }
+
+  // get all notice
+  static Stream<QuerySnapshot<Map<String,dynamic>>> getAllNOtice(List<String> userIds){
+
+    return firestore.collection('notice')
+        .where('id',whereIn: [...userIds,auth.currentUser!.uid])
+        .snapshots();
+  }
   // for create Post cho ban be
   static Future<void>  createPostMyFrends(int type,String text,File file) async{
     final time=DateTime.now().millisecondsSinceEpoch.toString();

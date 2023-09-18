@@ -219,7 +219,7 @@ class _VideoCardState extends State<VideoCard> {
                   Expanded(child: Container()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0),
-                    child: Text('${widget.postU.countcommnet} comments',style: new TextStyle(color: Colors.grey)),),
+                    child: Text('${widget.postU.countcommnet} bình luận',style: new TextStyle(color: Colors.grey)),),
                 ],
               ),
             ),
@@ -248,14 +248,14 @@ class _VideoCardState extends State<VideoCard> {
                         APIs.sendPudNOtificatPost('liked your post',widget.postU.pushToken);
                       },
                       icon: Icon(Icons.thumb_up_alt_outlined, color:widget.postU.like ? Colors.blue : Colors.grey),
-                      label: Text('Like',style: TextStyle(color:widget.postU.like ?  Colors.blue : Colors.grey))),
+                      label: Text('Thích',style: TextStyle(color:widget.postU.like ?  Colors.blue : Colors.grey))),
 
 
                   TextButton.icon(
                       onPressed: () {
                         _showBottomSheet();
                       },
-                      icon:Icon(Icons.mode_comment_outlined, color: Colors.grey), label: Text('Comment', style: TextStyle(color: Colors.grey))),
+                      icon:Icon(Icons.mode_comment_outlined, color: Colors.grey), label: Text('Bình luận', style: TextStyle(color: Colors.grey))),
 
 
                   TextButton.icon(
@@ -263,7 +263,7 @@ class _VideoCardState extends State<VideoCard> {
 
                       },
                       icon: Icon(Icons.share_outlined, color: Colors.grey),
-                      label: Text('Share', style: TextStyle(color: Colors.grey))),
+                      label: Text('Chia sẻ', style: TextStyle(color: Colors.grey))),
                 ],
               ),
             ),
