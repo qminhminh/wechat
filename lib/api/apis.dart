@@ -200,15 +200,16 @@ class APIs{
           noiDung: text,
           time: time,
           id: auth.currentUser!.uid,
+          email: auth.currentUser!.email.toString(),
       );
       return await firestore.collection("notice").doc(time).set(noticeModle.toJson());
   }
 
   // get all notice
-  static Stream<QuerySnapshot<Map<String,dynamic>>> getAllNOtice(List<String> userIds){
+  static Stream<QuerySnapshot<Map<String,dynamic>>> getAllNOtice(){
 
     return firestore.collection('notice')
-        .where('id',whereIn: [...userIds,auth.currentUser!.uid])
+      //  .where('id',whereIn: [...userIds,auth.currentUser!.uid])
         .snapshots();
   }
   // for create Post cho ban be
@@ -344,6 +345,12 @@ class APIs{
         .snapshots();
   }
 
+  static Stream<QuerySnapshot<Map<String,dynamic>>> getAllUersss(List<String> userIds){
+
+    return firestore.collection('users')
+        // .where('id',whereNotIn:  userIds)
+        .snapshots();
+  }
   // for getting MY users from firebase
   static Stream<QuerySnapshot<Map<String,dynamic>>> getMyUserId(){
     return firestore.collection('users')
@@ -351,6 +358,14 @@ class APIs{
         .collection('my_users')
         .snapshots();
   }
+
+  static Future<void> gedeleteNotice(String date) async{
+    await firestore.collection('notice')
+        .doc(date)
+        .delete();
+  }
+
+
   //for getting Id users from firebase
   static Stream<QuerySnapshot<Map<String,dynamic>>> getAllPost(List<String> userIds){
 

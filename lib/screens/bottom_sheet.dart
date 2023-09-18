@@ -60,7 +60,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.video_collection_outlined), label: 'Video'),
           BottomNavigationBarItem(icon: Icon(Icons.notifications_active_outlined), label: 'Notice'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'My Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_search), label: 'Users'),
         ],
       ),
     );

@@ -44,7 +44,7 @@ class _CharUserCardState extends State<CharUserCard> {
             return ListTile(
                leading: InkWell(
                  onTap: (){
-                   showDialog(context: context, builder: (_)=>ProfileDialog(user: widget.user));
+                   showDialog(context: context, builder: (_) => ProfileDialog(user: widget.user));
                  },
                  child: ClipRRect(
                    borderRadius: BorderRadius.circular(mq.height*.3),

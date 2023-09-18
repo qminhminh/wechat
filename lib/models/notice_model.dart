@@ -6,6 +6,7 @@ class NoticeModel {
     required this.noiDung,
     required this.time,
     required this.id,
+    required this.email,
   });
   late final String image;
   late final String type;
@@ -13,6 +14,7 @@ class NoticeModel {
   late final String noiDung;
   late final String time;
   late final String id;
+  late final String email;
 
   NoticeModel.fromJson(Map<String, dynamic> json){
     image = json['image'] ?? '';
@@ -21,6 +23,7 @@ class NoticeModel {
     noiDung = json['noi_dung'] ?? '';
     time = json['time'] ?? '';
     id = json['id'] ?? '';
+    email = json['email'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
@@ -31,6 +34,7 @@ class NoticeModel {
     data['noi_dung'] = noiDung;
     data['time'] = time;
     data['id'] = id;
+    data['email'] = email;
     return data;
   }
 }

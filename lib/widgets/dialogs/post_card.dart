@@ -113,9 +113,12 @@ class _PostCardState extends State<PostCard> {
             final list = data?.map((e) => ChatUser.fromJson(e.data())).toList() ?? [];
             
             if(list[0].isOnline )
-               { APIs.updateActiveStatusPost(true,widget.postU.time,list[0].pushToken);}
+               {
+                 APIs.updateActiveStatusPost(true,widget.postU.time,list[0].pushToken);
+               }
             else
-            { APIs.updateActiveStatusPost(false,widget.postU.time,list[0].pushToken);}
+            {
+              APIs.updateActiveStatusPost(false,widget.postU.time,list[0].pushToken);}
                widget.postU.isOnline==list[0].isOnline;
                 return Text('');
           }
@@ -464,9 +467,9 @@ class _PostCardState extends State<PostCard> {
                     icon: Icon(Icons.delete_forever,color: Colors.blue,size: 26,),
                     name: 'Delete Post',
                     onTap: () async {
-                      APIs.gedeletePost(widget.postU.time);
-                      APIs.gedeleteComment(widget.postU.time);
-                      APIs.deletePostMe(widget.postU.time, widget.postU.ext);
+                     await APIs.gedeletePost(widget.postU.time);
+                     await APIs.gedeleteComment(widget.postU.time);
+                     await APIs.deletePostMe(widget.postU.time, widget.postU.ext);
 
                       Dialogs.showSnacker(context, 'Delete Post Success');
                       Navigator.pop(context);

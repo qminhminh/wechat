@@ -164,9 +164,9 @@ class _PostScreenState extends State<PostScreen> {
                               await APIs.createPostMyFrends(
                                   _image != null ? 1 : 0, textController.text,
                                   _image != null ? File(_image!) : _video!);
-                             // APIs.sendPudNOtificat('Post New');
+
                               Dialogs.showSnacker(context, 'Post Success');
-                              APIs.creteNotice(textController.text, _image != null ? "1" : "0");
+                              await APIs.creteNotice(textController.text, _image != null ? "1" : "0");
                               Navigator.pop(context);
                             }
                             else{
@@ -187,8 +187,8 @@ class _PostScreenState extends State<PostScreen> {
                                   _image != null ? 1 : 0, textController.text,
                                   _image != null ? File(_image!) : _video!);
 
-                              APIs.creteNotice(textController.text, _image != null ? "1" : "0");
-                              //APIs.sendPudNOtificat('Post New');
+                              await APIs.creteNotice(textController.text, _image != null ? "1" : "0");
+
                               Dialogs.showSnacker(context, 'Post Success');
                               Navigator.pop(context);
                             }

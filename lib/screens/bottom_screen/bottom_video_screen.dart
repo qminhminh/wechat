@@ -46,7 +46,7 @@ class _BottomVideoScreenState extends State<BottomVideoScreen> {
             }
           },
         ):
-        Text('Video',style: TextStyle(fontSize:17,color: Colors.black87 ),),
+        Text('Video',style: TextStyle(fontSize:20,color: Colors.black87 ,fontWeight: FontWeight.bold),),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -101,7 +101,7 @@ class _BottomVideoScreenState extends State<BottomVideoScreen> {
                           );
                         }
                         else{
-                          return Center(child: Text('Chưa có bình luận nào 🥰',style: TextStyle(fontSize: 20),));
+                          return Center(child: Text('Chưa có video nào 🥰',style: TextStyle(fontSize: 20),));
                         }
                     }
                   },
