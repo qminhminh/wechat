@@ -5,8 +5,6 @@ import '../main.dart';
 import '../models/chat_user.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'dialogs/profile_dilog.dart';
-
 class UsersCard extends StatefulWidget {
   final ChatUser user;
   const UsersCard({super.key, required this.user});
@@ -18,7 +16,8 @@ class UsersCard extends StatefulWidget {
 class _UsersCardState extends State<UsersCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
+    
+    return widget.user.id.toString() != APIs.auth.currentUser!.uid ? Card(
       margin: EdgeInsets.symmetric(horizontal: mq.width * 0.04, vertical: 4),
       elevation: 0.5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -88,6 +87,6 @@ class _UsersCardState extends State<UsersCard> {
           ],
         ),
       ),
-    );
+    ) : Text('');
   }
 }
