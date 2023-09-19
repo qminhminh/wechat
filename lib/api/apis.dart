@@ -167,6 +167,12 @@ class APIs{
                 .collection('my_users')
                 .doc(data.docs.first.id)
                 .set({});
+
+            await firestore.collection('users')
+                .doc(data.docs.first.id)
+                .collection('my_users')
+                .doc(user.uid)
+                .set({});
             return true;
           }else{
             return false;
