@@ -47,5 +47,24 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<key>CFBundleURLTypes</key>
+        <array>
+        	<dict>
+        		<key>CFBundleTypeRole</key>
+        		<string>Editor</string>
+        		<key>CFBundleURLSchemes</key>
+        		<array>
+        			<string>com.googleusercontent.apps.491822419390-ftbo65bimcsgle15fj5vrurj950hosks</string>
+        		</array>
+        	</dict>
+        </array>
+
+	    <key>NSPhotoLibraryUsageDescription</key>
+         <string>App requires access to the photo library for picking pictures.</string>
+         <key>NSCameraUsageDescription</key>
+         <string>App requires access to the camera library for taking pictures.</string>
+     <key>NSPhotoLibraryAddUsageDescription</key>
+         <string>The app requires read and write access to the photo library</string>
 </dict>
 </plist>
