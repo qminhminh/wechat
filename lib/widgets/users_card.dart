@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wechat/api/apis.dart';
+import 'package:wechat/screens/screen_chucnang/profile_uers_screen.dart';
 import '../helpers/dialogs.dart';
 import '../main.dart';
 import '../models/chat_user.dart';
@@ -22,12 +23,13 @@ class _UsersCardState extends State<UsersCard> {
       elevation: 0.5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: Row(
           children: [
             InkWell(
               onTap: () {
                 // Add your action here when the image is tapped
+                Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileUsersScreen(chatUser: widget.user)));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(mq.height * 0.3),
