@@ -23,7 +23,7 @@ class _BottomNoticeScreenState extends State<BottomNoticeScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title:  Text('Thông báo',style: TextStyle(fontSize: 20,color: Colors.black87,fontWeight: FontWeight.bold),textAlign: TextAlign.start,),
+        title:  Text('Notice',style: TextStyle(fontSize: 20,color: Colors.black87,fontWeight: FontWeight.bold),textAlign: TextAlign.start,),
         actions: [
           IconButton(
               onPressed: (){

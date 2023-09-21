@@ -287,8 +287,6 @@ class APIs{
     }
   }
 
-
-
   static Future<void> deleteStoryMe(String time, String ext) async {
     try {
       // Xây dựng lại đường dẫn của tệp dựa trên thời gian và phần mở rộng
@@ -371,6 +369,27 @@ class APIs{
         .delete();
   }
 
+  static Future<bool> deleteUserFriends(String email) async{
+    final data= await firestore.collection('users').where('email',isEqualTo: email).get();
+
+    if(data.docs.isNotEmpty && data.docs.first.id != user.uid ){
+
+      await firestore.collection('users')
+          .doc(user.uid)
+          .collection('my_users')
+          .doc(data.docs.first.id)
+          .delete();
+
+      await firestore.collection('users')
+          .doc(data.docs.first.id)
+          .collection('my_users')
+          .doc(user.uid)
+          .delete();
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   //for getting Id users from firebase
   static Stream<QuerySnapshot<Map<String,dynamic>>> getAllPost(List<String> userIds){

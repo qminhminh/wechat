@@ -62,23 +62,26 @@ class _UsersCardState extends State<UsersCard> {
                   Row(
                     children: [
                       ElevatedButton(
-                        onPressed: () async {
+                        onPressed: (){
                           // Add your action for "Thêm bạn bè" button here
-                          await APIs.sendPudNOtification(widget.user, 'Đã gửi lời mời kết bạn');
-                          await APIs.creteNotice('Đã gửi lời mời kết bạn ', "2");
-                          Dialogs.showSnacker(context, 'Đã gửi lời mời kết bạn');
+                          APIs.sendPudNOtification(widget.user, 'Friend request sent');
+                           APIs.creteNotice('Friend request sent ', "2");
+                          Dialogs.showSnacker(context, 'Friend request sent');
                         },
-                        child: Text("Thêm bạn bè"),
+                        child: Text("Add friend"),
                       ),
                       SizedBox(width: 8), // Add spacing between buttons
                       ElevatedButton(
                         onPressed: () {
                           // Add your action for "Xóa" button here
+                          APIs.deleteUserFriends(widget.user.email);
+                          APIs.sendPudNOtification(widget.user, 'Unfriended');
+                          Dialogs.showSnacker(context, 'Unfriended');
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.grey, // Đặt màu nền của nút thành màu xám
                         ),
-                        child: Text("Xóa", style: TextStyle(color: Colors.white)), // Đặt màu chữ thành trắng
+                        child: Text("Unfriend", style: TextStyle(color: Colors.white)), // Đặt màu chữ thành trắng
                       ),
 
                     ],

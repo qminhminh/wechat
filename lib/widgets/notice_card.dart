@@ -18,8 +18,6 @@ class NoticeCard extends StatefulWidget {
 
 class _NoticeCardState extends State<NoticeCard> {
 
-
-
   @override
   Widget build(BuildContext context) {
     bool isMe = APIs.user.uid == widget.noteMod.id;
@@ -44,13 +42,13 @@ class _NoticeCardState extends State<NoticeCard> {
               errorWidget: (context, url, error) => CircleAvatar(child: Icon(CupertinoIcons.person),),
             ),
           ),
-          title: widget.noteMod.type.toString() == "2" ? Text('${widget.noteMod.name + ' đã gửi lời mời kết bạn \n ${MyDateUtil.getLastMessageTime(context: context, time: widget.noteMod.time)}'} ${widget.noteMod.noiDung}')  : Text('${widget.noteMod.name + ' đã đăng \n ${MyDateUtil.getLastMessageTime(context: context, time: widget.noteMod.time)}'} ${widget.noteMod.noiDung}'),
+          title: widget.noteMod.type.toString() == "2" ? Text('${widget.noteMod.name + ' sent a friend request  \n ${MyDateUtil.getLastMessageTime(context: context, time: widget.noteMod.time)}'}')  : Text('${widget.noteMod.name + ' posted  ${widget.noteMod.noiDung} \n ${MyDateUtil.getLastMessageTime(context: context, time: widget.noteMod.time)}'} '),
           subtitle:widget.noteMod.email.toString() != APIs.auth.currentUser!.email ? ElevatedButton(
-              onPressed: () async {
-                await APIs.addChatUser(widget.noteMod.email);
+              onPressed: () {
+                APIs.addChatUser(widget.noteMod.email);
                 Dialogs.showSnacker(context, 'Đã thêm thành công');
               },
-              child: Text("Chấp nhận lời mời")
+              child: Text("Accept the invitation")
           ) : Text(''),
           trailing: InkWell(
              onTap: () {
@@ -100,7 +98,7 @@ class _OpionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>onTap(),
+      onTap: ()=> onTap(),
       child: Padding(
         padding: EdgeInsets.only(left: mq.width*.05,top: mq.height*.015,bottom: mq.height*.025),
         child: Row(

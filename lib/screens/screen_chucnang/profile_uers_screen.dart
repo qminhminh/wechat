@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wechat/models/chat_user.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:wechat/screens/chat_screen.dart';
-
 import '../../api/apis.dart';
 import '../../helpers/dialogs.dart';
 
@@ -104,10 +103,10 @@ class _ProfileUsersScreenState extends State<ProfileUsersScreen> {
         Expanded(
           flex: 1,
             child:  ElevatedButton.icon(
-                onPressed: () async {
-                  await APIs.sendPudNOtification(widget.chatUser, 'Đã gửi lời mời kết bạn');
-                  await APIs.creteNotice('Đã gửi lời mời kết bạn ', "2");
-                  Dialogs.showSnacker(context, 'Đã gửi lời mời kết bạn');
+                onPressed: () {
+                  APIs.sendPudNOtification(widget.chatUser, 'Friend request sent');
+                  APIs.creteNotice('Friend request sent', "2");
+                  Dialogs.showSnacker(context, 'Friend request sent');
                 },
                 icon: Icon(Icons.person_add,size: 20,), 
                 label: Text('Add friends'),
