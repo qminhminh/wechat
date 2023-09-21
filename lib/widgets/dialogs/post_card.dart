@@ -183,7 +183,7 @@ class _PostCardState extends State<PostCard> {
            ),
 
               FloatingActionButton(
-                backgroundColor: Colors.grey,
+                backgroundColor:_videoPlayerController.value.isPlaying ?  Colors.white54 :Colors.white54 ,
                onPressed: () {
                setState(() {
                   if (_videoPlayerController.value.isPlaying) {
@@ -193,7 +193,7 @@ class _PostCardState extends State<PostCard> {
                   }
                  });
                 },
-              child: Icon(_videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,
+              child: Icon(_videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,color: _videoPlayerController.value.isPlaying ? Colors.white54 : Colors.white54,
     ),
     ),
          ],
@@ -466,10 +466,10 @@ class _PostCardState extends State<PostCard> {
                 _OpionItem(
                     icon: Icon(Icons.delete_forever,color: Colors.blue,size: 26,),
                     name: 'Delete Post',
-                    onTap: () async {
-                     await APIs.gedeletePost(widget.postU.time);
-                     await APIs.gedeleteComment(widget.postU.time);
-                     await APIs.deletePostMe(widget.postU.time, widget.postU.ext);
+                    onTap: () {
+                      APIs.gedeletePost(widget.postU.time);
+                      APIs.gedeleteComment(widget.postU.time);
+                      APIs.deletePostMe(widget.postU.time, widget.postU.ext);
 
                       Dialogs.showSnacker(context, 'Delete Post Success');
                       Navigator.pop(context);

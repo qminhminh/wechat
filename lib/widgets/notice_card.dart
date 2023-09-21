@@ -78,8 +78,8 @@ class _NoticeCardState extends State<NoticeCard> {
               _OpionItem(
                   icon: Icon(Icons.delete_forever,color: Colors.blue,size: 26,),
                   name: 'Delete Post',
-                  onTap: () async {
-                    await APIs.gedeleteNotice(widget.noteMod.time);
+                  onTap: () {
+                    APIs.gedeleteNotice(widget.noteMod.time);
                     Dialogs.showSnacker(context, 'Delete Post Success');
                     Navigator.pop(context);
                   }

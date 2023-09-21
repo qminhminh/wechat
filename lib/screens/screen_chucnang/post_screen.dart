@@ -115,6 +115,7 @@ class _PostScreenState extends State<PostScreen> {
                         : Container(child: Text('False',style: TextStyle(color: Colors.red),),),
                   if(_video!=null)
                    FloatingActionButton(
+                     backgroundColor:_videoPlayerController.value.isPlaying ?  Colors.white54 :Colors.white54,
                     onPressed: () {
                       setState(() {
                         _videoPlayerController.value.isPlaying
@@ -123,7 +124,7 @@ class _PostScreenState extends State<PostScreen> {
                       });
                     },
                     child: Icon(
-                      _videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,color: _videoPlayerController.value.isPlaying ?  Colors.transparent :Colors.white54,
+                      _videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,color: _videoPlayerController.value.isPlaying ?  Colors.white54 :Colors.white54,
                     ),
                   ),
 
@@ -158,15 +159,15 @@ class _PostScreenState extends State<PostScreen> {
                     child: Column(
                       children: [
                         ElevatedButton.icon(
-                          onPressed: () async {
+                          onPressed: ()  {
 
                             if(_image !=null || _video !=null ) {
-                              await APIs.createPostMyFrends(
+                               APIs.createPostMyFrends(
                                   _image != null ? 1 : 0, textController.text,
                                   _image != null ? File(_image!) : _video!);
 
                               Dialogs.showSnacker(context, 'Post Success');
-                              await APIs.creteNotice(textController.text, _image != null ? "1" : "0");
+                              APIs.creteNotice(textController.text, _image != null ? "1" : "0");
                               Navigator.pop(context);
                             }
                             else{
@@ -183,12 +184,11 @@ class _PostScreenState extends State<PostScreen> {
                         ElevatedButton.icon(
                           onPressed: () async {
                             if(_image !=null || _video !=null ) {
-                              await APIs.createPostPublic(
+                               APIs.createPostPublic(
                                   _image != null ? 1 : 0, textController.text,
                                   _image != null ? File(_image!) : _video!);
 
-                              await APIs.creteNotice(textController.text, _image != null ? "1" : "0");
-
+                               APIs.creteNotice(textController.text, _image != null ? "1" : "0");
                               Dialogs.showSnacker(context, 'Post Success');
                               Navigator.pop(context);
                             }
