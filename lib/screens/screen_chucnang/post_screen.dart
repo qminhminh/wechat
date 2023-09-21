@@ -123,7 +123,7 @@ class _PostScreenState extends State<PostScreen> {
                       });
                     },
                     child: Icon(
-                      _videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                      _videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,color: _videoPlayerController.value.isPlaying ?  Colors.transparent :Colors.white54,
                     ),
                   ),
 
