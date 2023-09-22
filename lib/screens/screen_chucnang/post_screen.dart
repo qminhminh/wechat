@@ -115,7 +115,7 @@ class _PostScreenState extends State<PostScreen> {
                         : Container(child: Text('False',style: TextStyle(color: Colors.red),),),
                   if(_video!=null)
                    FloatingActionButton(
-                     backgroundColor:_videoPlayerController.value.isPlaying ?  Colors.white54 :Colors.white54,
+                     backgroundColor:Colors.transparent,
                     onPressed: () {
                       setState(() {
                         _videoPlayerController.value.isPlaying
@@ -124,7 +124,7 @@ class _PostScreenState extends State<PostScreen> {
                       });
                     },
                     child: Icon(
-                      _videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,color: _videoPlayerController.value.isPlaying ?  Colors.white54 :Colors.white54,
+                      _videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,color: Colors.white.withOpacity(0.5),
                     ),
                   ),
 

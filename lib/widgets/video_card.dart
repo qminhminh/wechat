@@ -176,7 +176,7 @@ class _VideoCardState extends State<VideoCard> {
                   ),
                   if(isImage)
                   FloatingActionButton(
-                    backgroundColor: Colors.grey,
+                    backgroundColor:Colors.transparent,
                     onPressed: () {
                       setState(() {
                         if (_videoPlayerController.value.isPlaying) {
@@ -186,7 +186,7 @@ class _VideoCardState extends State<VideoCard> {
                         }
                       });
                     },
-                    child: Icon(_videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                    child: Icon(_videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,color: Colors.white.withOpacity(0.5),
                     ),
                   ),
                 ],
