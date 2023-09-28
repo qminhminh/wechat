@@ -510,6 +510,8 @@ class APIs{
       });
 }
   // useful for getting conversation id
+  //Đây là một biểu thức điều kiện (ternary expression) để xác định xem chuỗi ID cuộc trò chuyện sẽ được tạo ra như thế nào.
+  // Điều kiện so sánh ở đây so sánh giá trị băm (hash code) của user.uid và id.
   static String getConvertsationID(String id) => user.uid.hashCode<=id.hashCode
       ? '${user.uid}_$id' : '${id}_${user.uid}';
 
