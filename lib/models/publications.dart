@@ -14,6 +14,7 @@ class PostU {
     required this.like,
     required this.countcommnet,
     required this.ext,
+    required this.block,
   });
   late final String id;
   late final String name;
@@ -29,6 +30,7 @@ class PostU {
   late final bool like;
   late final int countcommnet;
   late final String ext;
+  late final bool block;
 
   PostU.fromJson(Map<String, dynamic> json) {
     id = json['id'] ?? '';
@@ -45,6 +47,7 @@ class PostU {
     like = json['like'];
     countcommnet = json['countcommnet'];
     ext = json['ext'] ?? '';
+    block = json['block'];
     // Default value for type if not provided
   }
 
@@ -65,6 +68,7 @@ class PostU {
     data['like'] = like;
     data['countcommnet'] = countcommnet;
     data['ext'] = ext;
+    data['block'] = block;
     return data;
   }
 }

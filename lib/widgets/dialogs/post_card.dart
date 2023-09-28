@@ -32,7 +32,7 @@ class _PostCardState extends State<PostCard> {
   int count=0;
   late VideoPlayerController _videoPlayerController;
   bool isImage = true;
-  final textController=TextEditingController();
+  final textController = TextEditingController();
   late List<PostComment> listcomnet;
   bool _showEmoji=false;
   int co=0;
@@ -258,9 +258,10 @@ class _PostCardState extends State<PostCard> {
 
     TextButton.icon(
     onPressed: () {
+      if(widget.postU.block)
       _showBottomSheet();
     },
-    icon:Icon(Icons.mode_comment_outlined, color: Colors.grey), label: Text('Comment', style: TextStyle(color: Colors.grey))),
+    icon: widget.postU.block ? Icon(Icons.mode_comment_outlined, color: Colors.grey):Icon(Icons.comments_disabled_outlined, color: Colors.grey), label: Text( widget.postU.block ?'Comment' :'Lock Comment', style: TextStyle(color: Colors.grey))),
 
 
     TextButton.icon(
@@ -476,6 +477,34 @@ class _PostCardState extends State<PostCard> {
                     }
                 ),
 
+              if(isMe)
+                Divider(
+                  color: Colors.black54,
+                  endIndent: mq.width*.04,
+                  indent: mq.height*.04,
+                ),
+
+              if(isMe && widget.postU.block == true)
+                _OpionItem(
+                    icon: Icon(Icons.comments_disabled_outlined,color: Colors.blue,size: 26,),
+                    name: 'Comment Lock',
+                    onTap: () {
+                      APIs.updateLockComment(false,widget.postU.time);
+                      Dialogs.showSnacker(context, 'Unlock comment');
+                      Navigator.pop(context);
+                    }
+                ),
+
+              if(isMe && widget.postU.block == false)
+                _OpionItem(
+                    icon: Icon(Icons.mode_comment_outlined,color: Colors.blue,size: 26,),
+                    name: 'Comment UnLock',
+                    onTap: () {
+                      APIs.updateLockComment(true,widget.postU.time);
+                      Dialogs.showSnacker(context, 'lock comment');
+                      Navigator.pop(context);
+                    }
+                ),
               Divider(
                 color: Colors.black54,
                 endIndent: mq.width*.04,

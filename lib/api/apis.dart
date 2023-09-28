@@ -229,7 +229,7 @@ class APIs{
 
     });
 
-    final post=PostU(
+    final post = PostU(
         id: auth.currentUser!.uid,
         name: auth.currentUser!.displayName.toString(),
         email: auth.currentUser!.email.toString(),
@@ -243,7 +243,8 @@ class APIs{
          pushToken: '',
         like: false,
          countcommnet: 0,
-        ext: ext
+        ext: ext,
+        block: true
     );
     return await firestore.collection('post').doc(time).set(post.toJson());
   }
@@ -316,7 +317,7 @@ class APIs{
     });
 
 
-    final post=PostU(
+    final post = PostU(
         id: '2',
         name: auth.currentUser!.displayName.toString(),
         email: auth.currentUser!.email.toString(),
@@ -330,7 +331,8 @@ class APIs{
         pushToken: '',
         like: false,
         countcommnet: 0,
-        ext: ext
+        ext: ext,
+        block: true
     );
     return await firestore.collection('post').doc(time).set(post.toJson());
   }
@@ -464,6 +466,16 @@ class APIs{
         .update(
         {
           'countcommnet': count
+        });
+  }
+
+  static Future<void>  updateLockComment(bool lock,String date) async{
+    firestore
+        .collection('post')
+        .doc(date)
+        .update(
+        {
+          'block': lock
         });
   }
 
