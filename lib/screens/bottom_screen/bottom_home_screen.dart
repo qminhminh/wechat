@@ -138,7 +138,6 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
                             ) :PostCard(postU: postlist[index],context: context,)
                           );
 
-
                     }
                   },
                 );
